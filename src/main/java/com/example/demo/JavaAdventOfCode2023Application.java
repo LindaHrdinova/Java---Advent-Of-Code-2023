@@ -13,6 +13,8 @@ public class JavaAdventOfCode2023Application {
         List<String> lines = readAllLines(Path.of("src\\main\\resources\\line.txt"));
         System.out.println(lines);
 
+        List<Integer> numbers = new ArrayList<>();
+
         for (int i = 0; i < lines.size(); i++) {
             List<Character> digits = new ArrayList<>();
             String line = lines.get(i);
@@ -23,7 +25,19 @@ public class JavaAdventOfCode2023Application {
                 }
             }
             System.out.println(digits);
+            int firstDigit = digits.getFirst();
+            int lastDigit = digits.getLast();
+            int number = (Character.getNumericValue(firstDigit) * 10) + Character.getNumericValue(lastDigit);
+            System.out.println(number);
+
+            numbers.add(number);
         }
+        System.out.println(numbers);
+        int resultNumber = 0;
+        for (int i = 0; i < numbers.size(); i++) {
+            resultNumber += numbers.get(i);
+        }
+        System.out.println(resultNumber);
 
     }
 }
